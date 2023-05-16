@@ -53,7 +53,7 @@ for i in len(files):
 # 							to_delete.add(file_2[0])
 
 
-print(f'There are {len(to_delete)} files to delete ({sum(to_delete.values())/1024**2}MB)')
+print(f'There are {len(to_delete)} duplicated files ({sum(to_delete.values())/1024**2}MB)')
 
 
 # CHUNK_SIZE = 65536  # 64kb

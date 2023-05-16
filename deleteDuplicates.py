@@ -55,6 +55,15 @@ for i in len(files):
 
 print(f'There are {len(to_delete)} duplicated files ({sum(to_delete.values())/1024**2}MB)')
 
+while True:	
+	delete = input('Do you want to delete them? (y/n)').lower()
+	if delete == 'y' or delete == 'yes':
+		for filename in to_delete.keys():
+			os.remove(filename)
+		break
+	elif delete == 'n' or delete == 'no':
+		break
+
 
 # CHUNK_SIZE = 65536  # 64kb
 #

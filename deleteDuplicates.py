@@ -9,13 +9,13 @@ def get_hash(filename, method='md5'):
     	return hashlib.file_digest(f, method)
 
 safe_comparison = False
-PATH = os.getcwd
+PATH = os.getcwd()
 
-files = [file for file in os.path.listdir(PATH) if os.isfile(os.path.join(PATH, file))]
+files = [file for file in os.listdir(PATH) if os.path.isfile(os.path.join(PATH, file))]
 to_delete = {}
 hashes = {}
 
-for i in len(files):
+for i in range(len(files)):
 	file1 = files[i]
 	if file1 not in to_delete:
 		for file2 in files[i:]:
@@ -24,10 +24,10 @@ for i in len(files):
 				size_2 = os.stat(file2).st_size
 				if size_1 == size_2:
 					if file1 not in hashes:
-						hashes̈́[file1] = get_hash(file1)
+						hashes[file1] = get_hash(file1)
 					if file2 not in hashes:
-						hashes̈́[file2] = get_hash(file2)
-					if hashes̈́[file1] == hashes̈́[file2]:
+						hashes[file2] = get_hash(file2)
+					if hashes[file1] == hashes[file2]:
 						if safe_comparison:
 							if filecmp.cmp(file1, file2, shallow=False):
 								to_delete[file2] = size_2

@@ -64,7 +64,7 @@ for files in same_size_files:
                         else:
                             to_delete[file2] = os.stat(file2).st_size
 
-print(f'{len(to_delete)} duplicated files ({sum(to_delete.values())/1000**2}MB)')
+print(f'Found {len(to_delete)} duplicated files ({sum(to_delete.values())/1000**2}MB)')
 while True:
     delete = input('Do you want to delete them? (y/n)').lower()
     if delete == 'y' or delete == 'yes':

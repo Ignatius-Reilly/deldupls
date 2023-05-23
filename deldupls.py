@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+Search for files with duplicate content and offer the option to delete all duplicates, keeping only one original file.
+There's no criterion for choosing the file to keep, it can be considered random: in fact, it keeps the first one that
+appears in os.listdir.
+
+Parameters:
+    - path=<path of the folder where files are located>
+        path can be absolute or relative to current folder.
+        If no path is selected, the current folder is used.
+    - safe=<bool>
+        If safe=False or not specified, compare by size and hash.
+        If safe=True, files that are of the same size and produce the same hash
+            are additionally compared by content. It's the same as running
+            filecmp.cmp with shallow=False only for those files.
+"""
 
 from sys import argv
 import os
